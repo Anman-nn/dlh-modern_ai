@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 '''Data Preparation and Visualization'''
 
-import pandas as pd
-
 
 def clean_total_charges(df, method='drop'):
     '''conversion'''
