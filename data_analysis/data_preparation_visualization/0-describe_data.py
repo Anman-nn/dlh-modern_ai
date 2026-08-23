@@ -4,11 +4,11 @@
 import pandas as pd
 
 df = pd.read_csv('Telco-Customer-Churn.csv')
-shape = # your code here
-data_types = # your code here
-head = # your code here
-missing_count = # your code here
-duplicates = # your code here
+shape = df.shape
+data_types = df.dtypes
+head = df.head(5)
+missing_count = df.isna().sum()
+duplicates = df.duplicated().sum()
 print("Shape:", shape)
 print("Dtypes:\n", data_types)
 print("First rows:\n", head)
