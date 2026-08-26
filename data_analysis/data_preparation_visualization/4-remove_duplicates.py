@@ -5,4 +5,4 @@
 def remove_duplicates(df):
     '''def remove_duplicates(df):'''
 
-    return df.drop_duplicates(inplace=True)
+    return df.drop_duplicates()
