@@ -21,15 +21,18 @@ def plot_continuous_distributions(df, columns_to_plot=None):
         data = df[col].dropna()
 
         # Histogram
-        axes[i, 0].hist(data, bins=30, density=True, alpha=0.7)
+        axes[i, 0].hist(data, bins=30, density=True, alpha=0.7,
+                        edgecolor="black")
         data.plot(
             kind="kde",
             ax=axes[i, 0],
             color="red",
             linestyle="--"
         )
+        padding = (data.max() - data.min()) * 0.05
         axes[i, 0].set_title(f"{col} Histogram + KDE")
-
+        axes[i, 0].set_xlim(data.min() - padding, data.max() + padding)
+        axes[i, 0].set_ylabel("")
         # Boxplot
         axes[i, 1].boxplot(data, vert=False)
         axes[i, 1].set_title(f"{col} Boxplot")
