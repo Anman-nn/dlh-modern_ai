@@ -13,7 +13,8 @@ def plot_categorical_distributions(df, columns_to_plot=None):
         columns_to_plot.remove('Churn')
     else:
         to_plot = columns_to_plot
-    n_cols, n_rows = 3, n_rows = math.ceil(len(columns_to_plot) / n_cols)
+    n_cols = 3
+    n_rows = n_rows = math.ceil(len(columns_to_plot) / n_cols)
     fig, axes = plt.subplots(n_rows, n_cols, figsize=(15, 5*n_rows))
     axes = axes.flatten()
 
