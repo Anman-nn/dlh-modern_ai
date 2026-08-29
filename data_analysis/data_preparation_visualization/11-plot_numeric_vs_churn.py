@@ -12,8 +12,11 @@ def plot_numeric_vs_churn(df, col):
     churn_yes = df[df["Churn"] == "Yes"][col].dropna()
     churn_no = df[df["Churn"] == "No"][col].dropna()
 
-    plt.hist(churn_no, bins=30, alpha=0.5, label="No")
-    plt.hist(churn_yes, bins=30, alpha=0.5, label="Yes")
+    plt.hist(
+        [churn_no, churn_yes],
+        bins=30,
+        label=["No", "Yes"]
+    )
 
     plt.title(f"{col} Distribution by Churn")
     plt.xlabel(col)
