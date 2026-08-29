@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""
+"""Data Preparation and Visualization
 """
 import matplotlib.pyplot as plt
 
 
 def plot_categorical_distributions(df, columns_to_plot=None):
-    """
+    """ot_categorical_distributions
     """
     import math
     if columns_to_plot is None:
