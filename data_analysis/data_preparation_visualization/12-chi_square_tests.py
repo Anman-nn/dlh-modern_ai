@@ -14,5 +14,5 @@ def chi_square_tests(df):
     for col in f:
         table = pd.crosstab(df[col], df["Churn"])
         chi2, p, dof, expected = stats.chi2_contingency(table)
-        res[col] = float(p)
+        res[col] = p
     return res
