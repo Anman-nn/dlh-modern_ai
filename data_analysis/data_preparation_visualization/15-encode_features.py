@@ -27,15 +27,16 @@ def encode_features(df):
     for col in binary_cols:
         df[[col]] = binary_encoder.fit_transform(df[[col]]).astype(int)
 
-    df[binary_cols] = binary_encoder.fit_transform(df[binary_cols])
-
     tenure_encoder = preprocessing.OrdinalEncoder()
-    df[["TenureGroup"]] = tenure_encoder.fit_transform(df[["TenureGroup"]])
+    df[["TenureGroup"]] = tenure_encoder.fit_transform(
+        df[["TenureGroup"]]
+    ).astype(int)
 
     df = pd.get_dummies(
         df,
         columns=["Contract", "PaymentMethod"],
-        drop_first=True
+        drop_first=True,
+        dtype=int
     )
 
     return df, churn_encoder, binary_encoder, tenure_encoder
