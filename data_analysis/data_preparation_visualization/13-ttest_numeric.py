@@ -2,8 +2,8 @@
 """plot_continuous_distributions
 """
 
-import pandas as pd
 from scipy import stats
+
 
 def ttest_numeric(df):
     '''def ttest_numeric(df):'''
