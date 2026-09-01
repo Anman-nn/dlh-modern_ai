@@ -5,6 +5,7 @@
 import pandas as pd
 from sklearn import preprocessing
 
+
 def encode_features(df):
     '''def encode_features(df):'''
     df = df.copy()
@@ -20,8 +21,12 @@ def encode_features(df):
     ]
 
     binary_encoder = preprocessing.OrdinalEncoder(
-        categories=[["No", "Yes"]] * len(binary_cols)
+        categories=[["No", "Yes"]]
     )
+
+    for col in binary_cols:
+        df[[col]] = binary_encoder.fit_transform(df[[col]]).astype(int)
+
     df[binary_cols] = binary_encoder.fit_transform(df[binary_cols])
 
     tenure_encoder = preprocessing.OrdinalEncoder()
