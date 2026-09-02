@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """Data Collection - Web Scraping
 """
-
 import requests
 
+
 def fetch_html(url, headers = None, timeout = 10):
-
-
+    '''fetch'''
     response = requests.get(url, headers=headers, timeout=timeout)
     response.raise_for_status()
     return response.text
