@@ -15,19 +15,29 @@ def scrape_paginated(base_url):
     url = base_url
 
     while url:
-        quotes.extend(scrape_basic(url))
         html = fetch_html(url)
         soup = BeautifulSoup(html, "html.parser")
-        next_li = soup.find("li", class_="next")
 
-        if next_li:
-            next_link = next_li.find("a")
+        for quote_block in soup.find_all("div", class_="quote"):
+            text = quote_block.find("span", class_="text").get_text()
+            author = quote_block.find("small", class_="author").get_text()
+            tags = [
+                tag.get_text()
+                for tag in quote_block.find_all("a", class_="tag")
+            ]
+
+            quotes.append({
+                "text": text,
+                "author": author,
+                "tags": tags
+            })
+
+        next_link = soup.select_one("li.next a")
 
         if next_link is None:
             url = None
         else:
-            href = next_link.get("href")
-            url = parse.urljoin(url, href)
+            url = parse.urljoin(url, next_link.get("href"))
             time.sleep(0.1)
 
     return quotes
