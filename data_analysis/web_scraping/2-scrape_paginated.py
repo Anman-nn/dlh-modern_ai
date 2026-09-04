@@ -28,6 +28,6 @@ def scrape_paginated(base_url):
         else:
             href = next_link.get("href")
             url = parse.urljoin(url, href)
-            time.sleep(1)
+            time.sleep(0.1)
 
     return quotes
