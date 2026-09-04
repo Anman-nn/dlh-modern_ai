@@ -7,7 +7,7 @@ fetch_html = __import__('0-fetch_html').fetch_html
 
 
 def scrape_via_api(base_url):
-    '''API'''
+    '''API scrape_via_api'''
     page_num = 1
     has_next = True
     quotes = []
