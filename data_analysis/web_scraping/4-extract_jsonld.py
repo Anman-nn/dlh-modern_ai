@@ -5,7 +5,6 @@
 from bs4 import BeautifulSoup
 import json
 fetch_html = __import__('0-fetch_html').fetch_html
-from bs4 import BeautifulSoup
 
 
 def extract_jsonld(url):
