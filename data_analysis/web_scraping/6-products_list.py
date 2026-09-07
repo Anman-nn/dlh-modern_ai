@@ -4,11 +4,11 @@
 
 import time
 from selenium import webdriver
-By = webdriver.common.by.By
 
 
 def scrape_products(url):
     '''def scrape_products(url):'''
+    By = webdriver.common.by.By
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")            # modern headless mode
     options.add_argument("--window-size=1920,1080")   # real desktop viewport
