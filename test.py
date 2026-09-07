@@ -4,10 +4,11 @@
 
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+
 
 def scrape_products(url):
     '''def scrape_products(url):'''
+    from selenium.webdriver.common.by import By
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")            # modern headless mode
     options.add_argument("--window-size=1920,1080")   # real desktop viewport
@@ -22,7 +23,8 @@ def scrape_products(url):
         cards = driver.find_elements(By.CLASS_NAME, 'thumbnail')
 
         for card in cards:
-            title = card.find_element(By.CSS_SELECTOR, 'a.title').get_attribute('title')
+            title = card.find_element(By.CSS_SELECTOR, 'a.title').get_attribute(
+                'title')
             price = card.find_element(By.CSS_SELECTOR, 'h4.price').text
             description = card.find_element(
                 By.CSS_SELECTOR,
@@ -44,6 +46,9 @@ def scrape_products(url):
         driver.quit()
 
     return products
+
+
+
 url = "https://webscraper.io/test-sites/e-commerce/static/computers/laptops"
 products = scrape_products(url)
 try:

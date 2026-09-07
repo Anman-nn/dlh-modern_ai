@@ -8,7 +8,7 @@ from selenium import webdriver
 
 def scrape_products(url):
     '''def scrape_products(url):'''
-    By = webdriver.common.by.By
+    from selenium.webdriver.common.by import By
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")            # modern headless mode
     options.add_argument("--window-size=1920,1080")   # real desktop viewport
