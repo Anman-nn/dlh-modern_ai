@@ -11,8 +11,8 @@ def scrape_products(url):
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")            # modern headless mode
     options.add_argument("--window-size=1920,1080")   # real desktop viewport
-    options.add_argument("--no-sandbox")              # needed in many containers
-    options.add_argument("--disable-dev-shm-usage")   # avoid /dev/shm crashes in Docker
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Chrome(options=options)
     products = []
