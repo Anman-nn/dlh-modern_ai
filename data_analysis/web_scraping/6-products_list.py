@@ -4,7 +4,8 @@
 
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+By = webdriver.common.by.By
+
 
 def scrape_products(url):
     '''def scrape_products(url):'''
