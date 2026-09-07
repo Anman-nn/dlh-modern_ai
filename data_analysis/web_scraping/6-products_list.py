@@ -34,9 +34,10 @@ def scrape_products(url):
                 "css selector", "p.description"
             ).text
 
-            rating = card.find_element(
+            rating_t = card.find_element(
                 "css selector", ".ratings p[data-rating]"
             ).get_attribute("data-rating")
+            rating = int(rating_t)
 
             products.append({
                 "title": title,
