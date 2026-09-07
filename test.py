@@ -8,7 +8,6 @@ from selenium import webdriver
 
 def scrape_products(url):
     '''def scrape_products(url):'''
-    from selenium.webdriver.common.by import By
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")            # modern headless mode
     options.add_argument("--window-size=1920,1080")   # real desktop viewport
@@ -22,17 +21,23 @@ def scrape_products(url):
         time.sleep(1)
         cards = driver.find_elements(By.CLASS_NAME, 'thumbnail')
 
+        cards = driver.find_elements("class name", "thumbnail")
+
         for card in cards:
-            title = card.find_element(By.CSS_SELECTOR, 'a.title').get_attribute(
-                'title')
-            price = card.find_element(By.CSS_SELECTOR, 'h4.price').text
-            description = card.find_element(
-                By.CSS_SELECTOR,
-                "p.description"
+            title = card.find_element(
+                "css selector", "a.title"
+            ).get_attribute("title")
+
+            price = card.find_element(
+                "css selector", "h4.price"
             ).text
+
+            description = card.find_element(
+                "css selector", "p.description"
+            ).text
+
             rating = card.find_element(
-                By.CSS_SELECTOR,
-                ".ratings p[data-rating]"
+                "css selector", ".ratings p[data-rating]"
             ).get_attribute("data-rating")
 
             products.append({

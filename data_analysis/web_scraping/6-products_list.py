@@ -19,8 +19,6 @@ def scrape_products(url):
     try:
         driver.get(url)
         time.sleep(1)
-        cards = driver.find_elements(By.CLASS_NAME, 'thumbnail')
-
         cards = driver.find_elements("class name", "thumbnail")
 
         for card in cards:
