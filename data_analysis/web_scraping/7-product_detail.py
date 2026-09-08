@@ -43,9 +43,3 @@ def scrape_product_detail(url, delay=2.0):
         driver.quit()
 
     return product
-
-
-
-url = "https://webscraper.io/test-sites/e-commerce/static/product/32"
-detail = scrape_product_detail(url)
-print(f"Product details: {detail}")
