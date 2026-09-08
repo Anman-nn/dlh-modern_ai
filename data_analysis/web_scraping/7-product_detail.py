@@ -29,7 +29,7 @@ def scrape_product_detail(url, delay=2.0):
         ).text
         rating = len(driver.find_elements(
             "css selector",
-            ".ratings p.ws-icon.ws-icon-star"
+            ".ws-icon.ws-icon-star"
         ))
 
         product = {
