@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""Unsupervised Learning
+"""
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn import preprocessing
+
+
+def Standardize(X):
+    '''def scale_numeric(df):'''
+    
+    scaler = preprocessing.StandardScaler()
+
+    res = scaler.fit_transform(X)
+
+    return res
