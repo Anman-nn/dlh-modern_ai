@@ -24,7 +24,8 @@ def optimal_k(X, max_clusters, random_state):
         inertia_values.append(model.inertia_)
 
         # Append the silhouette score to scores
-        silhouette_values.append(metrics.silhouette_score(X, model.labels_, metric='euclidean'))
+        silhouette_values.append(metrics.silhouette_score(
+            X, model.labels_, metric='euclidean'))
 
         ks.append(k)
 
