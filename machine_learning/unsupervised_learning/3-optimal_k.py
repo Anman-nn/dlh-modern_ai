@@ -17,10 +17,10 @@ def optimal_k(X, max_clusters, random_state):
     for k in K:
         # train the model for current value of k on training data
         model = K_Means(X, k, random_state)
-        
+
         # append the model to fits
         fits.append(model)
-        
+
         inertia_values.append(model.inertia_)
 
         # Append the silhouette score to scores
