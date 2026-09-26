@@ -14,6 +14,8 @@ def Agglomerative_Clustering(
     n_components,
     use_pca_data=True
 ):
+    """Agglomerative_Clustering"""
+
     if use_pca_data:
         X, pca_model = Apply_PCA(
             X,
