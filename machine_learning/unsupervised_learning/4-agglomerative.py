@@ -24,10 +24,15 @@ def Agglomerative_Clustering(
         )
 
     model = cluster.AgglomerativeClustering(
-        n_clusters=n_clusters
-    )
+        n_clusters=n_clusters)
 
-    labels = model.fit_predict(X)
-    score = metrics.silhouette_score(X, labels)
+    model.fit(X)
+
+    if n_clusters == 1:
+        score = None
+    else:
+        score = float(
+            metrics.silhouette_score(X, model.labels_)
+        )
 
     return model, X, score
