@@ -6,7 +6,7 @@ from sklearn import tree
 
 
 def build_decision_tree(min_samples_leaf, min_samples_split, random_state):
-    '''build_decision_tree(min_samples_leaf, min_samples_split, random_state)'''
+    '''build_decision_tree'''
     model = tree.DecisionTreeClassifier(
         criterion='gini',
         max_depth=None,
