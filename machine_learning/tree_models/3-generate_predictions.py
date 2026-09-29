@@ -5,4 +5,4 @@
 def generate_predictions(clf, X):
     """generate_predictions
     """
-    return clf.rpedict(X)
+    return clf.predict(X)
