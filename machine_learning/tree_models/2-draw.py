@@ -6,9 +6,11 @@ from sklearn import tree
 
 
 def draw(clf, feature_names, class_names):
-    """draw"""
-    tree.plot_tree(
+    """draw
+    """
+    res = tree.plot_tree(
         clf,
         feature_names=feature_names,
         class_names=class_names)
+    print(res)
     return None
