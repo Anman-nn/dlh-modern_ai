@@ -8,9 +8,10 @@ from sklearn import tree
 def draw(clf, feature_names, class_names):
     """draw
     """
-    res = tree.plot_tree(
+    res = tree.export_text(
         clf,
         feature_names=feature_names,
-        class_names=class_names)
+        class_names=class_names,
+        decimals=2)
     print(res)
     return None
