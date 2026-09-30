@@ -10,11 +10,11 @@ def prepruning(X, y, clf):
     """
 
     param_grid = {
-    "criterion": ["gini", "entropy"],
-    "max_depth": range(2, 5),
-    "min_samples_leaf": range(2, 5),
-    "min_samples_split": range(2, 5),
-}
+        "criterion": ["gini", "entropy"],
+        "max_depth": range(2, 5),
+        "min_samples_leaf": range(2, 5),
+        "min_samples_split": range(2, 5),
+    }
     s = model_selection.GridSearchCV(estimator=clf,
                                  param_grid=param_grid,
                                  scoring='accuracy',
