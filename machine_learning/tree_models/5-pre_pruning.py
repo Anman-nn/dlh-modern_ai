@@ -15,7 +15,8 @@ def prepruning(X, y, clf):
         "min_samples_leaf": range(2, 5),
         "min_samples_split": range(2, 5),
     }
-    s = model_selection.GridSearchCV(estimator=clf,
+    s = model_selection.GridSearchCV(
+        estimator=clf,
         param_grid=param_grid,
         scoring='accuracy',
         cv=5, n_jobs=-1
