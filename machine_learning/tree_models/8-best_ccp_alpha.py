@@ -5,8 +5,8 @@
 
 def get_best_alpha(clfs, train_scores, test_scores, ccp_alphas):
     '''get best'''
-    m_train_scores = max(train_scores)
-    indices = [i for i, value in enumerate(train_scores) if value == m_train_scores]
+    m_train_scores = max(test_scores)
+    indices = [i for i, value in enumerate(test_scores) if value == m_train_scores]
     if len(indices)>1:
         dif = {}
         for i, value in enumerate(indices):
