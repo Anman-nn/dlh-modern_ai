@@ -16,7 +16,7 @@ def get_best_alpha(clfs, train_scores, test_scores, ccp_alphas):
         if len(indices)>1:
             alphas = [ccp_alphas[i] for i in indices]
             indices = []
-            indices.append(ccp_alphas.index(max(alphas)))
+            indices.append(max(indices, key=lambda i: ccp_alphas[i]))
 
     i = indices[0]
     best_alpha = ccp_alphas[i]
