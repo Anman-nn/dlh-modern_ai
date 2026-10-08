@@ -7,4 +7,4 @@ from sklearn import linear_model
 
 def ridge_regression(random_state):
     '''ridge_regression'''
-    return linear_model.Ridge()
+    return linear_model.Ridge(random_state=random_state)
