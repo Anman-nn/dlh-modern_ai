@@ -6,6 +6,7 @@ from tensorflow import keras
 
 
 def build_model(input_dim, neuros_h):
+    '''build_model'''
     model = keras.Sequential([
         keras.Input(shape=(input_dim,)),
         keras.layers.Dense(
