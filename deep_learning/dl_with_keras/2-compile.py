@@ -6,9 +6,9 @@ from tensorflow import keras
 
 
 def compile_model(model, learning_rate=0.01):
+    '''compile'''
     model.compile(
-    optimizer=keras.optimizers.Adam(learning_rate=learning_rate),
-    loss="sparse_categorical_crossentropy",
+    optimizer=keras.optimizers.SGD(learning_rate=learning_rate),
+    loss="binary_crossentropy",
     metrics=["accuracy"]
     )
-    return None
