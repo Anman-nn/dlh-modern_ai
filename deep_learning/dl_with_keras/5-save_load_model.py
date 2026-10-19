@@ -6,11 +6,13 @@ from tensorflow import keras
 
 
 def save_model(model, filepath):
-    '''save'''
+    '''save
+    '''
     model.save(filepath)
 
 
 def load_model(filepath):
-    '''load'''
+    '''load
+    '''
     model = keras.models.load_model(filepath)
     return model
