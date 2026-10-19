@@ -2,8 +2,6 @@
 """Introduction to Deep Learning with Keras Project
 """
 
-from tensorflow import keras
-
 
 def train_model(model, X, Y, epochs, verbose=1):
     '''train_model(model, X, Y, epochs, verbose=1)'''
