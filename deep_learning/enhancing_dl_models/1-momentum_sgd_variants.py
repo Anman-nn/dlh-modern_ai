@@ -10,16 +10,16 @@ def get_optimizer_SGD(name, lr, momentum=0.0, nesterov=False):
 
     if name == "SGD":
         optimizer = keras.optimizers.SGD(
-            learning_rate = lr
+            learning_rate=lr
         )
     elif name == "SGD+Momentum":
         optimizer = keras.optimizers.SGD(
-            learning_rate = lr,
+            learning_rate=lr,
             momentum=momentum
         )
     elif name == "SGD+Momentum+Nesterov":
         optimizer = keras.optimizers.SGD(
-            learning_rate = lr,
+            learning_rate=lr,
             momentum=momentum,
             nesterov=nesterov
         )
