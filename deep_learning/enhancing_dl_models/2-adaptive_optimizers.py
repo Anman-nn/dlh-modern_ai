@@ -21,7 +21,6 @@ def get_optimizer(name, learning_rate, momentum, beta_1, beta_2, rho):
     elif name == "rmsprop":
         optimizer = keras.optimizers.RMSprop(
             learning_rate=learning_rate,
-            momentum=momentum,
             rho=rho
         )
     else:
