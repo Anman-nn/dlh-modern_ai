@@ -5,7 +5,8 @@
 from tensorflow import keras
 
 
-def train_with_gradient_descent_variant(variant, learning_rate, x_train, batch_size):
+def train_with_gradient_descent_variant(
+        variant, learning_rate, x_train, batch_size):
     '''train_with_gradient_descent_variant'''
     optimizer = keras.optimizers.SGD(
         learning_rate=learning_rate
