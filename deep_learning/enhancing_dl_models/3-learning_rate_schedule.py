@@ -5,7 +5,12 @@
 from tensorflow import keras
 
 
-def get_optimizer_SGD_with_schedule(schedule_type, initial_lr, decay_steps, decay_rate, momentum):
+def get_optimizer_SGD_with_schedule(
+    schedule_type, 
+    initial_lr, 
+    decay_steps, 
+    decay_rate, momentum
+):
     '''get optimizer'''
     if schedule_type == 'exponential':
         lr_schedule = keras.optimizers.schedules.ExponentialDecay(
@@ -14,7 +19,6 @@ def get_optimizer_SGD_with_schedule(schedule_type, initial_lr, decay_steps, deca
             decay_rate=decay_rate,
             staircase=True
         )
-        optimizer = keras.optimizers.SGD(learning_rate=lr_schedule, momentum=momentum)
     elif schedule_type == "inverse_time":
         lr_schedule = keras.optimizers.schedules.InverseTimeDecay(
             initial_learning_rate=initial_lr,
@@ -22,4 +26,5 @@ def get_optimizer_SGD_with_schedule(schedule_type, initial_lr, decay_steps, deca
             decay_rate=decay_rate,
             staircase=True
         )
+    optimizer = keras.optimizers.SGD(learning_rate=lr_schedule, momentum=momentum)
     return optimizer, lr_schedule
