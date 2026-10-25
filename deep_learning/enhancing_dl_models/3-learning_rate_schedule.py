@@ -26,6 +26,6 @@ def get_optimizer_SGD_with_schedule(
             decay_rate=decay_rate,
             staircase=True
         )
-    optimizer = keras.optimizers.SGD(learning_rate=lr_schedule, 
+    optimizer = keras.optimizers.SGD(learning_rate=lr_schedule,
                                      momentum=momentum)
     return optimizer, lr_schedule
