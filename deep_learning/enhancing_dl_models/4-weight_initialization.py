@@ -2,8 +2,7 @@
 """Enhancing Deep Learning Models
 """
 
-import keras
-from keras import layers
+from tensorflow import keras
 
 
 def build_model_initializer_by_activation(
@@ -29,13 +28,13 @@ def build_model_initializer_by_activation(
 
     inputs = keras.Input(shape=(input_dim,))
 
-    hidden = layers.Dense(
+    hidden = keras.layers.Dense(
         hidden_units,
         activation=hidden_activation,
         kernel_initializer=initializer
     )(inputs)
 
-    outputs = layers.Dense(
+    outputs = keras.layers.Dense(
         10,
         activation="softmax"
     )(hidden)
