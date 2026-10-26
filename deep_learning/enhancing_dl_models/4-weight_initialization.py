@@ -11,38 +11,42 @@ def build_model_initializer_by_activation(
     activation
 ):
     '''build_model_initializer_by_activation'''
+    inputs = keras.Input(shape=(input_dim,))
+
     if activation in ("sigmoid", "tanh"):
-        initializer = keras.initializers.GlorotUniform()
-        hidden_activation = activation
+        hidden = keras.layers.Dense(
+            hidden_units,
+            activation=activation,
+            kernel_initializer=keras.initializers.GlorotUniform()
+        )(inputs)
+
     elif activation == "relu":
-        initializer = keras.initializers.HeNormal()
-        hidden_activation = activation
+        hidden = keras.layers.Dense(
+            hidden_units,
+            activation="relu",
+            kernel_initializer=keras.initializers.HeNormal()
+        )(inputs)
+
     elif activation == "leaky_relu":
-        initializer = keras.initializers.HeNormal()
-        hidden_activation = keras.activations.leaky_relu
+        hidden = keras.layers.Dense(
+            hidden_units,
+            kernel_initializer=keras.initializers.HeNormal()
+        )(inputs)
+
+        hidden = keras.layers.LeakyReLU()(hidden)
+
     else:
         raise ValueError(
             "activation must be 'sigmoid', 'tanh', "
             "'relu', or 'leaky_relu'"
         )
 
-    inputs = keras.Input(shape=(input_dim,))
-
-    hidden = keras.layers.Dense(
-        hidden_units,
-        activation=hidden_activation,
-        kernel_initializer=initializer
-    )(inputs)
-
     outputs = keras.layers.Dense(
         10,
         activation="softmax"
     )(hidden)
 
-    model = keras.Model(
-        inputs=inputs,
-        outputs=outputs
-    )
+    model = keras.Model(inputs=inputs, outputs=outputs)
 
     model.compile(
         optimizer="adam",
