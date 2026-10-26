@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""Enhancing Deep Learning Models
+"""
+
+import keras
+from keras import layers
+
+
+def build_model_initializer_by_activation(
+    input_dim,
+    hidden_units,
+    activation
+):
+    '''build_model_initializer_by_activation'''
+    if activation in ("sigmoid", "tanh"):
+        initializer = keras.initializers.GlorotUniform()
+        hidden_activation = activation
+    elif activation == "relu":
+        initializer = keras.initializers.HeNormal()
+        hidden_activation = activation
+    elif activation == "leaky_relu":
+        initializer = keras.initializers.HeNormal()
+        hidden_activation = keras.activations.leaky_relu
+    else:
+        raise ValueError(
+            "activation must be 'sigmoid', 'tanh', "
+            "'relu', or 'leaky_relu'"
+        )
+
+    inputs = keras.Input(shape=(input_dim,))
+
+    hidden = layers.Dense(
+        hidden_units,
+        activation=hidden_activation,
+        kernel_initializer=initializer
+    )(inputs)
+
+    outputs = layers.Dense(
+        10,
+        activation="softmax"
+    )(hidden)
+
+    model = keras.Model(
+        inputs=inputs,
+        outputs=outputs
+    )
+
+    model.compile(
+        optimizer="adam",
+        loss="sparse_categorical_crossentropy",
+        metrics=["accuracy"]
+    )
+
+    return model
