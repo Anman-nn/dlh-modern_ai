@@ -12,13 +12,11 @@ def search_and_return_best_model(
     '''search_and_return_best_model'''
 
     s = tuner.search(
-        x_train,
-        y_train,
-        epochs=epochs,
+        x_train, y_train, epochs=epochs,
         validation_split=validation_split,
         verbose=verbose
         )
 
-    best = tuner.get_best_hyperparameters(num_trials=1)[0]
+    best_hyperparameters = tuner.get_best_hyperparameters(num_trials=1)[0]
 
-    return best
+    return best_hyperparameters
