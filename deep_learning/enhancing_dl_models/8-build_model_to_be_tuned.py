@@ -6,7 +6,7 @@ from tensorflow import keras
 
 
 def build_model(hp):
-    '''build model'''    
+    '''build model'''
     model = keras.Sequential()
     model.add(keras.layers.InputLayer(input_shape=(784,)))
 
