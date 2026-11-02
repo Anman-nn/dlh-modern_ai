@@ -5,9 +5,11 @@
 from tensorflow import keras
 
 
-def build_model_with_dropout(input_dim, hidden_units,
-                            n_layers, dropout_rate_input,
-                            dropout_rate_hidden):
+def build_model_with_dropout(
+        input_dim, hidden_units,
+        n_layers, dropout_rate_input,
+        dropout_rate_hidden
+        ):
     '''with dropout'''
     inputs = keras.layers.Input(shape=(input_dim,))
     x = keras.layers.Dropout(dropout_rate_input)(inputs)
