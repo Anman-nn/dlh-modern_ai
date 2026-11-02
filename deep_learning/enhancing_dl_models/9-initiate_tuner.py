@@ -2,7 +2,7 @@
 """Enhancing Deep Learning Models
 """
 
-from tensorflow import keras
+import keras_tuner
 
 
 def initiate_tuner(
