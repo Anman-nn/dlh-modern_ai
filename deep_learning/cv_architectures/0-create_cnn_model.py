@@ -29,16 +29,14 @@ def create_cnn_model(
         keras.layers.Conv2D(
             filters=filters[0],
             kernel_size=kernel_sizes[0],
-            activation=activations[0],
-            padding="same"
+            activation=activations[0]
         ),
         pooling_class(pool_size=(2, 2)),
 
         keras.layers.Conv2D(
             filters=filters[1],
             kernel_size=kernel_sizes[1],
-            activation=activations[1],
-            padding="same"
+            activation=activations[1]
         ),
         pooling_class(pool_size=(2, 2)),
 
