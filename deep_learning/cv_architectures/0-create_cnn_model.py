@@ -16,7 +16,7 @@ def create_cnn_model(
 
     if pooling_type == "max":
         pooling_class = keras.layers.MaxPooling2D
-    elif pooling_type == "average":
+    elif pooling_type == "avg":
         pooling_class = keras.layers.AveragePooling2D
     else:
         raise ValueError(
