@@ -9,7 +9,7 @@ def compile_and_train_cnn(
     model, epochs, batch_size, x_train,
     y_train, x_val, y_val, optimizer_name='adam',
     optimizer_params=None
-    ):
+):
     '''compile_and_train_cnn'''
     if optimizer_name == 'adam':
         optimizer = keras.optimizers.Adam(
